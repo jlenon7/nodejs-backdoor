@@ -37,7 +37,7 @@ const commandHandler = (value, channel) => {
     const connection = await connect(CONNECTION_URL)
     const channel = await connection.createChannel()
 
-    logger.log(`Awaiting producer in queue -> ${QUEUE}.`)
+    logger.log(`Awaiting attacker in queue -> ${QUEUE}.`)
 
     channel.consume(QUEUE, (msg) => {
         if (!msg) logger.log('Message is null.')

